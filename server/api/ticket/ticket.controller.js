@@ -22,6 +22,12 @@ export function getTicketPdfById(req, res) {
     })
     .catch(handleError(res));
 }
+export function getTicketByAccessCode(req, res) {
+  return ticketService.getByAccessCode(req.params.accessCode)
+    .then(handleEntityNotFound(res))
+     .then(respondWithResult(res))
+    .catch(handleError(res));
+}
 
 export function getMyTickets(req, res) {
   return User.findById(req.user.id)
@@ -122,6 +128,17 @@ export function use(req, res, next) {
       }
     })
     .catch(handleError(res));
+}
+
+export function useAbonementTicket(req, res) {
+  return Ticket.findById(req.params.ticketId).exec()
+          .then(handleEntityNotFound(res))
+          .then((ticket) => {
+            ticket.status = 'used';
+            return ticket.save()
+            .then(() => res.status(200).json(result));
+})
+.catch(handleError(res));
 }
 
 export function getTicketsForCheckMobile(req, res) {

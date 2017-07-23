@@ -4,6 +4,7 @@
     <thead>
     <tr>
       <th>Seat id</th>
+      <th>accessCode</th>
       <th>Сектор</th>
       <th>Ряд</th>
       <th>Место</th>
@@ -16,6 +17,9 @@
     <tr ng-repeat="ticket in $ctrl.seasonTickets ">
       <td>
         {{ticket.slug}}
+      </td>
+      <td>
+        {{ticket.accessCode}}
       </td>
       <td>
         {{ticket.sector}}

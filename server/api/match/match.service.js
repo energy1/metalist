@@ -49,6 +49,7 @@ export function updateMatch(match, modifiedMatch) {
   match.date = modifiedMatch.date;
   match.poster = modifiedMatch.poster;
   match.info = modifiedMatch.info;
+  match.abonement = modifiedMatch.abonement;
   match.priceSchema = modifiedMatch.priceSchema.id;
 
   return match.save();

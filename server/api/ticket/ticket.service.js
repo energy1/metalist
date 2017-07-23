@@ -45,6 +45,11 @@ export function getByTicketNumber(ticketNumber) {
   return Ticket.findOne({ticketNumber: ticketNumber});
 }
 
+export function getByAccessCode(accessCode) {
+  console.log('accessCode', accessCode);
+  return Ticket.findOne({accessCode: accessCode});
+}
+
 export function randomNumericString(length) {
   let chars = '0123456789';
   let result = '';

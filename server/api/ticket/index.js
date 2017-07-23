@@ -9,6 +9,8 @@ let router = express.Router();
 router.get('/ticket/:ticketNumber', controller.getTicketPdfById);
 router.get('/my', auth.isAuthenticated(), controller.getMyTickets);
 
+router.get('/abonticket/:accessCode', auth.hasRole('admin'), controller.getTicketByAccessCode);
+router.get('/useabonticket/:ticketId', auth.hasRole('admin'), controller.useAbonementTicket);
 router.get('/events-statistics', auth.hasRole('admin'), controller.getEventsStatistics);
 router.get('/days-statistics', auth.hasRole('admin'), controller.getDaysStatistics);
 

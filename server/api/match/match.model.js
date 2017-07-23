@@ -17,6 +17,10 @@ const MatchSchema = new Schema({
   info: String,
   stadiumName: String,
   poster: String,
+  abonement: {
+    type: Boolean,
+    default: false,
+  },
 }, {
   toObject: {virtuals: true},
   toJSON: {virtuals: true},

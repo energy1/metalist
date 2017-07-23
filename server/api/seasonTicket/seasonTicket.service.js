@@ -18,6 +18,7 @@ export function getActiveBlocksBySector(sector) {
 }
 
 export function findBySlug(slug) {
+  console.log('slug', slug);
   return SeasonTicket.findOne({slug: slug});
 }
 
@@ -33,7 +34,8 @@ export function createSeasonTicket(ticket, slug) {
     row: ticket.row,
     seat: ticket.seat,
     reservedUntil: ticket.reservedUntil,
-    reservationType: SEASON_TICKET
+    reservationType: SEASON_TICKET,
+    accessCode: ticket.accessCode
   });
 
   return newTicket.save();

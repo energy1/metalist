@@ -12,7 +12,12 @@ const SeasonTicketSchema = new Schema({
   seat: { type: Number, requried: true },
   reservedUntil: { type: Date },
   reservationType: { type: String, enum: [BLOCK, SEASON_TICKET] },
-  reservedByCart: { type: String }
+  reservedByCart: { type: String },
+  accessCode: {
+    type: String,
+    required: true,
+    default: 0
+  },
 });
 
 export default mongoose.model('SeasonTicket', SeasonTicketSchema);

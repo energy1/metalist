@@ -14,24 +14,17 @@
     </div>
     <div class="row rowPadding">
       <div class="col-lg-12 col12Padding">
-        <div class="col-xs-1 rowNames">
-          <ul class="liststyle">
-            <li ng-repeat="row in vm.sector.rows | orderBy:'-'"
-                ng-class="{'rowdivider': vm.firstUpperRow == row.name}">  <!-- @TODO remove ng-repeat duplication  -->
-              <div class="txt">{{vm.rowRow}} {{row.name}}</div>
-            </li>
-          </ul>
-        </div>
         <div class="col-xs-11 seatsMargin">
           <ul class="liststyle">
             <li ng-repeat="row in vm.sector.rows | orderBy:'-'"
-                ng-class="{'rowdivider': vm.firstUpperRow == row.name}">  <!-- @TODO remove ng-repeat duplication  -->
+                ng-class="{'rowdivider': vm.firstUpperRow == row.name}">
               <div id="s{{vm.sector.name}}{{row.name}}{{1+$index}}"
-                   ng-class="vm.addClassByCheckSoldSeat('s'+vm.sector.name+'r'+row.name+'st'+(1+$index))"
-                   ng-repeat="seat in vm.makeArrayFromNumber(row.seats)"
-                   ng-click="vm.addSeatToCart(vm.sector.name, row.name, seat)"
-                   uib-popover-html="'<p>Трибуна: <b>{{vm.tribuneName}} {{vm.sector.name}}</b><br />Ряд: <b>{{row.name}}</b><br />Место: <b>{{seat}}</b></p>'"
-                   popover-trigger="mouseenter"></div>
+                   ng-repeat="seat in row.seats"
+                   ng-class="seat.isSelected ? 'blockedSeat' : seat.isSold ? 'soldSeat' : 'imgSeatsStyle'"
+                   ng-click="seat.isSelected ? vm.deleteSeatFromCart(seat.slug) : vm.addSeatToCart(seat.slug)"
+                   uib-popover-html="'<p>Трибуна: <b>{{vm.tribuneName}} {{vm.sector.name}}</b><br />Ряд: <b>{{row.name}}</b><br />Место: <b>{{seat.seat}}</b></p>'"
+                   popover-trigger="mouseenter">
+              </div>
             </li>
           </ul>
         </div>

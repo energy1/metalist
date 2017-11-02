@@ -23,7 +23,8 @@ export function getPrevMatches() {
 }
 
 export function getNextMatch() {
-  return Match.find({ date: { $gt: Date.now() }})
+  let date = new Date;
+  return Match.find({ date: { $gt: date.setHours(date.getHours() + 3) }})
     .sort({date: 1})
     .then( matches => matches[0] );
 }

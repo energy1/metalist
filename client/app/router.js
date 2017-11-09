@@ -101,10 +101,6 @@ export function routerConfig($cookiesProvider, $stateProvider, $urlRouterProvide
             $state.go('404');
           })
           ;
-      },
-      cart: (CartService) => {
-        'ngInject';
-        return CartService.data.cart;
       }
     }
   });

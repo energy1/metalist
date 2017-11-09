@@ -37,6 +37,8 @@ import routerDecorator from './auth/router.decorator';
 import adminModule from './admin/admin.module';
 import cashboxModule from './cashbox/cashbox.module';
 import authModule from './auth/auth.module';
+import ticketsModule from './tickets/tickets.module';
+
 import constantsModule from './app.constant';
 import filtersModule from './filters/filters';
 
@@ -51,7 +53,6 @@ import RecoveryController from './account/recovery/recovery.controller';
 import SectorController from './sector/sector.controller';
 import SettingsController from './account/settings/settings.controller';
 import SignupController from './account/signup/signup.controller';
-import TicketsController from './tickets/tickets.controller';
 
 import '../favicon.ico';
 import './app.less';
@@ -70,7 +71,8 @@ angular.module('metalistTicketsApp', [
   uiBootstrap,
   validationMatch,
   datePicker,
-  ioBarcode.name
+  ioBarcode.name,
+  ticketsModule
 ])
   .component('matchDetails', MatchDetailsComponent)
   .component('cartDetails', CartDetailsComponent)
@@ -99,7 +101,8 @@ angular.module('metalistTicketsApp', [
   .controller('SettingsController', SettingsController)
   .controller('SignupController', SignupController)
   .controller('NotFoundController', NotFoundController)
-  .controller('TicketsController', TicketsController)
+
+
   .config(routerConfig)
   .config(function ($httpProvider) {
     'ngInject';

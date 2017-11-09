@@ -56,6 +56,11 @@ export function routerConfig($cookiesProvider, $stateProvider, $urlRouterProvide
       }
     });
 
+    $stateProvider.state('main.tickets', {
+      url: '/my/tickets',
+      component: 'ticketsComponent'  
+    });
+
   $stateProvider.state('main', {
     abstract: true,
     url: '',
@@ -148,12 +153,7 @@ return $stateParams;
     }
   });
 
-  $stateProvider.state('main.tickets', {
-    url: '/my/tickets',
-    templateUrl: ticketsTemplate,
-    controller: 'TicketsController',
-    controllerAs: 'vm'
-  });
+  
 
   $stateProvider.state('login', {
     url: '/login?referrer',

@@ -4,7 +4,7 @@ const matchComponent = {
     templateUrl: matchTemplate,
     bindings: {
         match: '<',
-        cart1: '<'
+        cart: '<'
     },
     controller: class matchContrloller {
 

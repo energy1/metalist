@@ -43,11 +43,11 @@ import constantsModule from './app.constant';
 import filtersModule from './filters/filters';
 
 import CheckoutController from './checkout/checkout.controller';
-//import HomeController from './home/home.controller';
 import HomeComponent from './home/home.component';
 import LoginController from './account/login/login.controller';
 import LogoutController from './account/logout/logout.controller';
-import MatchController from './match/match.controller';
+//import MatchController from './match/match.controller';
+import MatchComponent from './match/match.component';
 import NotFoundController from './404/404.controller';
 import NavbarController from './navbar/navbar.controller';
 import RecoveryController from './account/recovery/recovery.controller';
@@ -77,6 +77,7 @@ angular.module('metalistTicketsApp', [
 ])
   .component('homeComponent', HomeComponent)
   .component('matchDetails', MatchDetailsComponent)
+  .component('matchComponent', MatchComponent)
   .component('cartDetails', CartDetailsComponent)
   .component('cartSummary', CartSummaryComponent)
   .component('navpanel', NavpanelComponent)
@@ -92,11 +93,10 @@ angular.module('metalistTicketsApp', [
   .service('TicketsService', TicketsService)
   .service('PrintTicketService', PrintTicketService)
   .service('FileService', FileService)
-  //.controller('HomeController', HomeController)
   .controller('CheckoutController', CheckoutController)
   .controller('LoginController', LoginController)
   .controller('LogoutController', LogoutController)
-  .controller('MatchController', MatchController)
+  //.controller('MatchController', MatchController)
   .controller('NavbarController', NavbarController)
   .controller('RecoveryController', RecoveryController)
   .controller('SectorController', SectorController)

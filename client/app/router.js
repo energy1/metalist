@@ -84,17 +84,15 @@ export function routerConfig($cookiesProvider, $stateProvider, $urlRouterProvide
 
   $stateProvider.state('main.home', {
     url: '/',
-    component: 'homeComponent',
-    //controller: 'HomeController',
-    //templateUrl: homeTemplate,
-    //controllerAs: 'vm',
+    component: 'homeComponent'
   });
 
   $stateProvider.state('main.match', {
     url: '/match/:id/sectors',
-    templateUrl: matchTemplate,
-    controller: 'MatchController',
-    controllerAs: 'vm',
+    component: 'matchComponent',
+    //templateUrl: matchTemplate,
+    //controller: 'MatchController',
+    //controllerAs: 'matchCtrl',
 
     resolve: {
       match: (MatchService, $stateParams, $state) => {
@@ -102,14 +100,14 @@ export function routerConfig($cookiesProvider, $stateProvider, $urlRouterProvide
         return MatchService
           .fetchMatch($stateParams.id)
           .catch((error) => {
-            console.log(error);
+            console.error(error);
             $state.go('404');
           })
           ;
       },
       cart: (CartService) => {
         'ngInject';
-        return CartService.cart;
+        return CartService.data.cart;
       }
     }
   });

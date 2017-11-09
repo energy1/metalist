@@ -5,8 +5,11 @@ export default class MatchController {
     this.$state = $state;
 
     this.match = match;
+    debugger
     this.cart = cart;
     this.priceSchema = this.match.priceSchema.priceSchema;
+
+    console.log('this.cart', this.cart);
   }
 
   goToSector($event) {

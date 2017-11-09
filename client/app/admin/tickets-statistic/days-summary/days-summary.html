@@ -1,23 +1,26 @@
 <hr>
-<table class="table table-condensed">
-    <thead>
+<table class="table table-hover">
+    <thead class="thead-inverse">
     <tr>
         <th>Дата</th>
         <th>Количество</th>
+        <th>Тип пользователя</th>
         <th>Сумма</th>
         <th>Детали (по ценам)</th>
     </tr>
     </thead>
-    <tbody>
-    <tr ng-repeat="stat in $ctrl.statistics | orderBy: '-date'">
-        <td ng-bind="stat.date | date: 'dd-MM-yyyy'">
+    <tbody ng-repeat="stat in $ctrl.statistics | orderBy: '-date'">
+    <tr ng-repeat="day in stat">
+        <td ng-bind="day.date | date: 'dd-MM-yyyy'">
         </td>
-        <td ng-bind="stat.count">
+        <td ng-bind="day.cashier">
         </td>
-        <td ng-bind="stat.sum"></td>
+        <td ng-bind="day.count">
+        </td>
+        <td ng-bind="day.sum"></td>
         <td>
             <ul>
-                <li ng-repeat="detail in stat.details | orderBy:'price'">{{detail.price}} - {{detail.count}} шт.</li>
+                <li ng-repeat="detail in day.details | orderBy:'price'">{{detail.price}} - {{detail.count}} шт.</li>
             </ul>
         </td>
     </tr>

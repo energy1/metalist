@@ -1,32 +1,27 @@
 import template from './days-summary.html';
 
-class DaysSummaryController {
-
-  constructor() {
-    this.statistics = [];
-  }
-
-  $onInit() {
-
-  }
-
-  $onChanges(changes) {
-    if (changes.daysStatistics) {
-      if (!this.daysStatistics.length) {
-        this.statistics = [];
-      }
-      if (this.daysStatistics.length) {
-        this.statistics = this.daysStatistics;
-      }
-    }
-  }
-}
-
 let daysSummaryComponent = {
   templateUrl: template,
-  controller: DaysSummaryController,
   bindings: {
     daysStatistics: '<'
+  },
+  controller: class DaysSummaryController {
+
+    constructor() {
+      this.statistics = [];
+    }
+
+    $onChanges(changes) {
+      console.log('$onChanges', this.daysStatistics);
+      if (changes.daysStatistics) {
+        if (!this.daysStatistics.length) {
+          this.statistics = [];
+        }
+        if (this.daysStatistics.length) {
+          this.statistics = this.daysStatistics;
+        }
+      }
+    }
   }
 };
 

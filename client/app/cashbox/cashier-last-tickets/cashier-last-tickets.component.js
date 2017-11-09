@@ -7,13 +7,14 @@ let cashierLastTicketsComponent = {
   },
   controller: class CashierLastTicketsController {
 
-    constructor(CashboxService, PrintTicketService) {
+    constructor(TicketsService, PrintTicketService) {
       'ngInject';
-      this.cashboxService = CashboxService;
+      this.ticketsService = TicketsService;
       this.printTicketService = PrintTicketService;
       this.ticket = [];
       this.statistics = [];
       this.lastTickets =[];
+      this.currentData = new Date();
     }
 
     $onInit() {
@@ -21,6 +22,7 @@ let cashierLastTicketsComponent = {
     }
 
     dateChanges($event){
+      this.currentData = $event.date;
       this.getStatistics({
           date: $event.date,
           metod: 'event'
@@ -28,7 +30,7 @@ let cashierLastTicketsComponent = {
     };
 
     getStatistics(date) {
-      this.cashboxService.getStatistics(date)
+      this.ticketsService.getStatistics(date)
         .then(response => {
           this.statistics = response;
         })
@@ -44,6 +46,11 @@ let cashierLastTicketsComponent = {
       seat.seat = blank.seat;
       blank.seat = seat;
       this.ticket.push(blank);
+    }
+
+    removeTicket(ticketId) {
+      return this.ticketsService.removeTicket(ticketId)
+        .then(() => this.getStatistics({date: this.currentData, metod: 'event'}))
     }
 
     ticketRendering(){

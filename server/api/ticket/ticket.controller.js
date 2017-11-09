@@ -43,55 +43,10 @@ export function getMyTickets(req, res) {
     .catch(handleError(res));
 }
 
-export function getEventsStatistics(req, res) {
-  let period = moment().subtract(1, 'days');
-
-  Ticket.find({'match.date': {$gte: period}})
-    .where({
-      $or: [
-        {status: 'paid'},
-        {status: 'used'}
-      ]
-    })
-    .sort({'match.date': 1})
-    .then(tickets => {
-      return tickets.map(ticket => {
-        return {
-          headline: ticket.match.headline,
-          sector: ticket.seat.sector,
-          date: moment(ticket.match.date).tz('Europe/Kiev').format('YYYY-MM-DD HH:mm'),
-          amount: ticket.amount
-        }
-      })
-    })
-    .then(respondWithResult(res))
-    .catch(handleError(res))
-  ;
-}
-
-export function getDaysStatistics(req, res) {
-  let period = moment().subtract(30, 'days');
-  console.log('-----------------',period);
-
-  Ticket.find({reserveDate: {$gte: new Date(period)}})
-    .where({
-      $or: [
-        {status: 'paid'},
-        {status: 'used'}
-      ]
-    })
-    .then(statistics => {
-      console.log('--------ddd-', statistics);
-      return statistics.map(stat => {
-        return {
-          date: moment(stat.reserveDate).tz('Europe/Kiev').format('YYYY-MM-DD'),
-          amount: stat.amount
-        }
-      });
-    })
-    .then(respondWithResult(res))
-    .catch(handleError(res))
-  ;
+function adminStatistics(req, res) {
+    return orderService.getEventsStatistics()
+        .then(respondWithResult(res))
+        .catch(handleError(res))
 }
 
 export function use(req, res, next) {
@@ -210,6 +165,7 @@ export function print(req, res, next) {
 export function getStatistics(req, res) {
   if (req.query.metod == 'day') {dayStatistics(req, res) }
   if (req.query.metod == 'event') {eventStatistics(req, res) }
+  if (req.query.metod == 'admin') {adminStatistics(req, res) }
 }
 
 function dayStatistics(req, res) {
@@ -257,13 +213,22 @@ function eventStatistics(req, res) {
             row: ticket.seat.row,
             seat: ticket.seat.seat,
             amount: ticket.amount,
-            accessCode: ticket.accessCode
+            accessCode: ticket.accessCode,
+            id: ticket.id
           })
         })
       }, 0), tickets;
     })
     .then(handleEntityNotFound(res))
     .then(respondWithResult(res))
+    .catch(handleError(res));
+}
+
+export function deleteTicketById(req, res) {
+  return Ticket.findByIdAndRemove(req.params.id).exec()
+    .then(function () {
+      res.status(204).end();
+    })
     .catch(handleError(res));
 }
 

@@ -16,10 +16,4 @@ export default class CashboxService {
     return this.$http.get('api/tickets/useabonticket/' + ticketId)
       .then(response => response.data);
   }
-
-  getStatistics(data) {
-    return this.$http.get('api/tickets/statistics',{params: {date: data.date, metod : data.metod} })
-      .then(response => response.data);
-  }
 }
-

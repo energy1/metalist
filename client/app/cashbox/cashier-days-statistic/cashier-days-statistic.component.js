@@ -7,9 +7,9 @@ let cashierDaysStatisticComponent = {
   },
   controller: class CashierDaysStatisticController {
 
-    constructor(CashboxService) {
+    constructor(TicketsService) {
       'ngInject';
-      this.cashboxService = CashboxService;
+      this.ticketsService = TicketsService;
       this.date = new Date();
       this.statistics = [];
       this.dayStatistics = [];
@@ -28,7 +28,7 @@ let cashierDaysStatisticComponent = {
     };
 
     getStatistics(date) {
-      this.cashboxService.getStatistics(date)
+      this.ticketsService.getStatistics(date)
         .then(response => {
           this.statistics = response;
         })

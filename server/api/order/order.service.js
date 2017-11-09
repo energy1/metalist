@@ -23,6 +23,27 @@ export function getStatistics(userId, date) {
   }}).populate('tickets');
 }
 
+export function getEventsStatistics() {
+  let day = moment().subtract(30, 'days');
+  let filtredTickets = [];
+  return Order.find({status: 'paid', created: {$gte: day.startOf('day').format('YYYY-MM-DD HH:mm:ss')}})
+    .populate('tickets')
+    .then(orders => {
+      return orders.map(order => {
+        return order.tickets.map(ticket => {
+          return filtredTickets.push({
+            cashier: !order.paymentDetails ? 'cashier' : 'user',
+            headline: ticket.match.headline,
+            sector: ticket.seat.sector,
+            date: moment(ticket.match.date).tz('Europe/Kiev').format('YYYY-MM-DD HH:mm'),
+            dateBuy: moment(ticket.reserveDate).tz('Europe/Kiev').format('YYYY-MM-DD'),
+            amount: ticket.amount
+          })
+        })
+      }, 0), filtredTickets;
+    })
+}
+
 export function findCartByPublicId(publicId) {
   return Order.findOne({publicId: publicId})
     .populate({

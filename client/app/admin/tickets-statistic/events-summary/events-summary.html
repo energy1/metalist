@@ -1,27 +1,29 @@
 <hr>
-<table class="table">
-    <thead>
+<table class="table table-hover">
+    <thead class="thead-inverse">
     <tr>
         <th>Match</th>
         <th>Дата</th>
+        <th>Тип пользователя</th>
         <th>Количество</th>
         <th>Сумма</th>
         <th>Детали (по секторам)</th>
     </tr>
     </thead>
-    <tbody>
-    <tr ng-repeat="stat in $ctrl.statistics">
-        <td ng-bind="stat.headline">
-        </td>
-        <td ng-bind="stat.date | date: 'dd-MM-yyyy HH:mm'">
-        </td>
-        <td ng-bind="stat.count">
-        </td>
-        <td ng-bind="stat.sum">
-        </td>
+    <tbody ng-repeat="stat in $ctrl.statistics" >
+    <tr ng-repeat="day in stat">
+
+        <td ng-bind="day.headline"></td>
+        <td ng-bind="day.date | date: 'dd-MM-yyyy HH:mm'"></td>
+        <td ng-bind="day.cashier"></td>
+        <td ng-bind="day.count"></td>
+        <td ng-bind="day.sum"></td>
+        <td>
         <td>
             <ul>
-                <li ng-repeat="detail in stat.details | orderBy:'sector'">{{detail.sector}} - {{detail.count}} шт.</li>
+                <li ng-repeat="detail in day.details | orderBy:'sector'">{{detail.sector}} -
+                    {{detail.count}} шт.
+                </li>
             </ul>
         </td>
     </tr>

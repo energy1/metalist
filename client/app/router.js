@@ -33,9 +33,9 @@ export function routerConfig($cookiesProvider, $stateProvider, $urlRouterProvide
       url: "/daysStatistic",
       component: 'cashierDaysStatistic',
       resolve: {
-        dayStatistics: (CashboxService) => {
+        dayStatistics: (TicketsService) => {
           'ngInject';
-          return CashboxService.getStatistics({
+          return TicketsService.getStatistics({
             date: new Date(),
             metod: 'day'
           })
@@ -46,9 +46,9 @@ export function routerConfig($cookiesProvider, $stateProvider, $urlRouterProvide
       url: "/lastTickets",
       component: 'cashierLastTickets',
       resolve: {
-        lastTickets: (CashboxService) => {
+        lastTickets: (TicketsService) => {
           'ngInject';
-          return CashboxService.getStatistics({
+          return TicketsService.getStatistics({
             date: new Date(),
             metod: 'event'
           })

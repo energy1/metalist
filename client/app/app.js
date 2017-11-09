@@ -38,15 +38,12 @@ import adminModule from './admin/admin.module';
 import cashboxModule from './cashbox/cashbox.module';
 import authModule from './auth/auth.module';
 import ticketsModule from './tickets/tickets.module';
-
 import constantsModule from './app.constant';
 import filtersModule from './filters/filters';
-
-import CheckoutController from './checkout/checkout.controller';
+import CheckoutComponent from './checkout/checkout.component';
 import HomeComponent from './home/home.component';
 import LoginController from './account/login/login.controller';
 import LogoutController from './account/logout/logout.controller';
-//import MatchController from './match/match.controller';
 import MatchComponent from './match/match.component';
 import NotFoundController from './404/404.controller';
 import NavbarController from './navbar/navbar.controller';
@@ -84,19 +81,21 @@ angular.module('metalistTicketsApp', [
   .component('stadium', StadiumComponent)
   .component('calendar', CalendarComponent)
   .component('renderTicket', RenderTicketComponent)
+  .component('checkoutComponent', CheckoutComponent)
+  
   .directive('footer', footerDirective)
   .directive('mongooseError', mongooseErrorDirective)
   .directive('navbar', navbarDirective)
   .directive('oauthButtons', oauthButtonsDirective)
+  
   .service('CartService', CartService)
   .service('MatchService', MatchService)
   .service('TicketsService', TicketsService)
   .service('PrintTicketService', PrintTicketService)
   .service('FileService', FileService)
-  .controller('CheckoutController', CheckoutController)
+    
   .controller('LoginController', LoginController)
   .controller('LogoutController', LogoutController)
-  //.controller('MatchController', MatchController)
   .controller('NavbarController', NavbarController)
   .controller('RecoveryController', RecoveryController)
   .controller('SectorController', SectorController)

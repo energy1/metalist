@@ -8,33 +8,33 @@
       <blockquote>
         <p>Приобретая билет, вы соглашаетесь с &nbsp;<a href="http://metalist1925.com/club/stadium/rules.php" target="_blank">«Правилами поведения на стадионе»</a></p>
       </blockquote>
-      <p ng-show="vm.reserveDate && !vm.isReserveSuccess">Ваши билеты зарезервированы на
-        <span style="color: red; font-size: 12pt;"><strong>{{vm.duration.minutes()}}</strong></span> мин <span  style="color: red;font-size: 12pt"><strong>{{vm.duration.seconds()}}</strong></span> сек
+      <p ng-show="$ctrl.reserveDate && !$ctrl.isReserveSuccess">Ваши билеты зарезервированы на
+        <span style="color: red; font-size: 12pt;"><strong>{{$ctrl.duration.minutes()}}</strong></span> мин <span  style="color: red;font-size: 12pt"><strong>{{$ctrl.duration.seconds()}}</strong></span> сек
         , чтобы никто не мог их купить.<br />
         Если вы не успеете за это время перейти к оплате, бронь будет снята и билеты вернутся в свободную продажу.<br/><br/>
         <strong>Перед оплатой билетов, пожалуйста, убедитесь, что не ошиблись в выборе матча, даты и места.</strong><br /><br />
       </p>
-      <p ng-show="vm.isReserveSuccess">
+      <p ng-show="$ctrl.isReserveSuccess">
         <strong>Бронь снята и билеты вернулись в свободную продажу.</strong><br /><br />
       </p>
     </div>
 
     <div class="col-sm-12">
       <div>
-        <strong>Билетов: {{ vm.cartService.getMyCartSize() }} - Сумма: {{ vm.cartService.getMyCartPrice() }} </strong>
+        <strong>Билетов: {{ $ctrl.cartService.getMyCartSize() }} - Сумма: {{ $ctrl.cartService.getMyCartPrice() }} </strong>
       </div>
-      <cart-details on-delete="vm.updateCart($event)"></cart-details>
+      <cart-details on-delete="$ctrl.updateCart($event)"></cart-details>
     </div>
-    <div class="buttons col-sm-12" ng-show="vm.cartService.getMyCartSize()">
-      <div class="col-sm-4 col-sm-offset-1" ng-hide="vm.isLoggedIn()">
+    <div class="buttons col-sm-12" ng-show="$ctrl.cartService.getMyCartSize()">
+      <div class="col-sm-4 col-sm-offset-1" ng-hide="$ctrl.isLoggedIn()">
         <a ui-sref="login" class="btn btn-primary btn-block">Войти</a>
       </div>
-      <div class="col-sm-1" ng-hide="vm.isLoggedIn()">
+      <div class="col-sm-1" ng-hide="$ctrl.isLoggedIn()">
         - ИЛИ -
       </div>
-      <div class="col-sm-5" ng-hide="vm.isLoggedIn()">
-        <div ng-show="!vm.confirm" ng-form="confirmForm" ng-model-options="{ updateOn: 'blur' }">
-          <p ng-show="vm.message">{{vm.message}}</p>
+      <div class="col-sm-5" ng-hide="$ctrl.isLoggedIn()">
+        <div ng-show="!$ctrl.confirm" ng-form="confirmForm" ng-model-options="{ updateOn: 'blur' }">
+          <p ng-show="$ctrl.message">{{$ctrl.message}}</p>
           <div class="form-group" ng-class="{'has-error': confirmForm.email.$invalid && confirmForm.email.$dirty}">
             <input type="email" class="form-control" name="email" placeholder="Email" ng-model="user.email"
                    required="required"/>
@@ -45,11 +45,11 @@
             </div>
           </div>
           <hr/>
-          <a ng-click="vm.confirmEmail(confirmForm, user)" class="btn btn-warning btn-block"
+          <a ng-click="$ctrl.confirmEmail(confirmForm, user)" class="btn btn-warning btn-block"
              ng-class="{'disabled': confirmForm.$invalid && confirmForm.$dirty}">Подтвердить email</a>
         </div>
-        <div ng-show="vm.confirm">
-          <p>{{vm.message}}</p>
+        <div ng-show="$ctrl.confirm">
+          <p>{{$ctrl.message}}</p>
           <form name="form" novalidate="novalidate" id="guest-user-form" ng-model-options="{ updateOn: 'blur' }">
             <div class="form-group" ng-class="{'has-error': form.email.$invalid && form.email.$dirty}">
               <input type="email" class="form-control" name="email" placeholder="Email" ng-model="user.email"
@@ -63,13 +63,13 @@
               <div class="help-block" ng-show="form.name.$error.required && form.name.$dirty">Password is required</div>
             </div>
             <hr/>
-            <a ng-click="vm.guestLogin(form, user)" class="btn btn-primary btn-block"
+            <a ng-click="$ctrl.guestLogin(form, user)" class="btn btn-primary btn-block"
                ng-class="{'disabled': form.$invalid && form.$dirty}">Войти</a>
           </form>
         </div>
       </div>
-      <div class="col-sm-4 col-sm-offset-4" ng-show="vm.isLoggedIn()">
-        <a class="btn btn-primary btn-block" ng-click="vm.checkout()">Оплатить</a>
+      <div class="col-sm-4 col-sm-offset-4" ng-show="$ctrl.isLoggedIn()">
+        <a class="btn btn-primary btn-block" ng-click="$ctrl.checkout()">Оплатить</a>
       </div>
 
     </div>

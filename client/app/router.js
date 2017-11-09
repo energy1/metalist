@@ -70,7 +70,7 @@ export function routerConfig($cookiesProvider, $stateProvider, $urlRouterProvide
         'ngInject';
         return CartService.loadCart()
           .catch((error) => {
-            console.log(error);
+            console.error(error);
           });
       }
     }
@@ -123,9 +123,9 @@ export function routerConfig($cookiesProvider, $stateProvider, $urlRouterProvide
       //sector:  $stateParams,
 
       sector: ($stateParams) => {
-'ngInject';
-return $stateParams;
-},
+        'ngInject';
+        return $stateParams;
+      },
 
       //sector: (Stadium, $stateParams) => {
       //
@@ -140,7 +140,7 @@ return $stateParams;
         return MatchService
           .fetchMatch($stateParams.id)
           .catch((error) => {
-            console.log(error);
+            console.error(error);
             $state.go('404');
           });
       }

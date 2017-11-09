@@ -19,7 +19,7 @@ export default class LogoutController {
         this.$state.go('main.home');
       })
       .catch((error) => {
-        console.log(error);
+        console.error(error);
         this.$state.go('404');
       });
   }

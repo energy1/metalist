@@ -6,7 +6,6 @@ const matchComponent = {
         match: '<',
         cart1: '<'
     },
-    controllerAs: 'matchCtrl',
     controller: class matchContrloller {
 
         constructor($state) {

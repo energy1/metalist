@@ -2,7 +2,6 @@ import template from './tickets.html';
 
 const ticketsComponent = {
   templateUrl: template,
-  controllerAs: 'ticketsCtrl',
   controller: class ticketsController {
 
    constructor($interval, $scope, TicketsService) {

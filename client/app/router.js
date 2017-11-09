@@ -90,10 +90,7 @@ export function routerConfig($cookiesProvider, $stateProvider, $urlRouterProvide
   $stateProvider.state('main.match', {
     url: '/match/:id/sectors',
     component: 'matchComponent',
-    //templateUrl: matchTemplate,
-    //controller: 'MatchController',
-    //controllerAs: 'matchCtrl',
-
+    
     resolve: {
       match: (MatchService, $stateParams, $state) => {
         'ngInject';

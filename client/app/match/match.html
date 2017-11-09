@@ -1,7 +1,7 @@
 <div class="container">
   <navpanel></navpanel>
   <div class="row">
-   <match-details match="matchCtrl.match"></match-details>
+   <match-details match="$ctrl.match"></match-details>
   </div>
   <div class="gradientSeats"></div>
   <div class="row">
@@ -9,7 +9,7 @@
       <h2 style="text-align: center">Выбор сектора</h2>
     </div>
     <div class="col-sm-12">
-      <stadium price-schema="matchCtrl.priceSchema" on-sector-select="matchCtrl.goToSector($event)"></stadium>
+      <stadium price-schema="$ctrl.priceSchema" on-sector-select="$ctrl.goToSector($event)"></stadium>
     </div>
   </div>
 </div>

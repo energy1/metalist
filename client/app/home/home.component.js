@@ -3,7 +3,6 @@ import moment from 'moment-timezone';
 
 const homeComponent = {
     templateUrl: homeTemplate,
-    controllerAs: 'homeCtrl',
     controller: class homeController {
 
         constructor($http, MatchEditorService) {

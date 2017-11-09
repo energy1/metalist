@@ -25,7 +25,6 @@ let adminModule = angular.module('metalistTicketsApp.admin', [])
   .service('MatchEditorService', MatchEditorService)
   .service('SeasonTicketService', SeasonTicketService)
   .service('PriceSchemaService', PriceSchemaService)
-
   .component('adminComponent', adminComponent)
   .component('adminUsers', AdminUsersComponent)
   .component('blockRowList', BlockRowListComponent)

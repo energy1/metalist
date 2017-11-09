@@ -78,16 +78,16 @@ export function routerConfig($cookiesProvider, $stateProvider, $urlRouterProvide
 
   $stateProvider.state('admin', {
     url: '/admin',
-    //templateUrl: adminTemplate,
     component: 'adminComponent',
     authenticate: 'admin'
   });
 
   $stateProvider.state('main.home', {
     url: '/',
-    controller: 'HomeController',
-    templateUrl: homeTemplate,
-    controllerAs: 'vm',
+    component: 'homeComponent',
+    //controller: 'HomeController',
+    //templateUrl: homeTemplate,
+    //controllerAs: 'vm',
   });
 
   $stateProvider.state('main.match', {

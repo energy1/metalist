@@ -78,7 +78,8 @@ export function routerConfig($cookiesProvider, $stateProvider, $urlRouterProvide
 
   $stateProvider.state('admin', {
     url: '/admin',
-    templateUrl: adminTemplate,
+    //templateUrl: adminTemplate,
+    component: 'adminComponent',
     authenticate: 'admin'
   });
 

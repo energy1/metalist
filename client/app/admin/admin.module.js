@@ -1,3 +1,4 @@
+import adminComponent from './admin.component';
 import AdminUsersComponent from './admin-users/admin-users.component';
 import BlockRowListComponent from './season-ticket/block-row-list/block-row-list.component';
 import BlockRowFormComponent from './season-ticket/block-row-form/block-row-form.component';
@@ -24,6 +25,8 @@ let adminModule = angular.module('metalistTicketsApp.admin', [])
   .service('MatchEditorService', MatchEditorService)
   .service('SeasonTicketService', SeasonTicketService)
   .service('PriceSchemaService', PriceSchemaService)
+
+  .component('adminComponent', adminComponent)
   .component('adminUsers', AdminUsersComponent)
   .component('blockRowList', BlockRowListComponent)
   .component('blockRowForm', BlockRowFormComponent)

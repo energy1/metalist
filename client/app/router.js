@@ -156,9 +156,7 @@ export function routerConfig($cookiesProvider, $stateProvider, $urlRouterProvide
     })
     .state('signup', {
       url: '/signup',
-      templateUrl: signupTemplate,
-      controller: 'SignupController',
-      controllerAs: 'vm'
+      component: 'signupComponent'
     })
     .state('recovery', {
       url: '/recovery',

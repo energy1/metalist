@@ -45,13 +45,13 @@ import HomeComponent from './home/home.component';
 import LoginComponent from './account/login/login.component';
 import LogoutController from './account/logout/logout.controller';
 import LogoutComponent from './account/logout/logout.component';
+import SignupComponent from './account/signup/signup.component';
 import MatchComponent from './match/match.component';
 import NotFoundController from './404/404.controller';
 import NavbarController from './navbar/navbar.controller';
 import RecoveryController from './account/recovery/recovery.controller';
 import SectorComponent from './sector/sector.component';
 import SettingsController from './account/settings/settings.controller';
-import SignupController from './account/signup/signup.controller';
 
 import '../favicon.ico';
 import './app.less';
@@ -75,6 +75,7 @@ angular.module('metalistTicketsApp', [
 ])
   .component('loginComponent', LoginComponent)
   .component('logoutComponent', LogoutComponent)
+  .component('signupComponent', SignupComponent)
   .component('homeComponent', HomeComponent)
   .component('matchDetails', MatchDetailsComponent)
   .component('matchComponent', MatchComponent)
@@ -98,12 +99,10 @@ angular.module('metalistTicketsApp', [
   .service('PrintTicketService', PrintTicketService)
   .service('FileService', FileService)
     
-  //.controller('LogoutController', LogoutController)
   
   .controller('NavbarController', NavbarController)
   .controller('RecoveryController', RecoveryController)
   .controller('SettingsController', SettingsController)
-  .controller('SignupController', SignupController)
   .controller('NotFoundController', NotFoundController)
 
 

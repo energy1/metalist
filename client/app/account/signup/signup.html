@@ -4,45 +4,45 @@
             <h1>Регистрация</h1>
         </div>
         <div class="col-sm-12">
-            <form name="form" ng-submit="vm.register(form)" novalidate="" class="form">
-                <div ng-class="{ 'has-success': form.name.$valid && vm.submitted,        'has-error': form.name.$invalid && vm.submitted }"
+            <form name="form" ng-submit="$ctrl.register(form)" novalidate="" class="form">
+                <div ng-class="{ 'has-success': form.name.$valid && $ctrl.submitted,        'has-error': form.name.$invalid && $ctrl.submitted }"
                      class="form-group">
                     <label>Имя</label>
-                    <input type="text" name="name" ng-model="vm.user.name" required="" class="form-control"/>
-                    <p ng-show="form.name.$error.required && vm.submitted" class="help-block">A name is required</p>
+                    <input type="text" name="name" ng-model="$ctrl.user.name" required="" class="form-control"/>
+                    <p ng-show="form.name.$error.required && $ctrl.submitted" class="help-block">A name is required</p>
                 </div>
-                <div ng-class="{ 'has-success': form.email.$valid && vm.submitted,        'has-error': form.email.$invalid && vm.submitted }"
+                <div ng-class="{ 'has-success': form.email.$valid && $ctrl.submitted,        'has-error': form.email.$invalid && $ctrl.submitted }"
                      class="form-group">
                     <label>Email</label>
-                    <input type="email" name="email" ng-model="vm.user.email" required="" mongoose-error=""
+                    <input type="email" name="email" ng-model="$ctrl.user.email" required="" mongoose-error=""
                            class="form-control"/>
-                    <p ng-show="form.email.$error.email && vm.submitted" class="help-block">Doesn't look like a valid
+                    <p ng-show="form.email.$error.email && $ctrl.submitted" class="help-block">Doesn't look like a valid
                         email.</p>
-                    <p ng-show="form.email.$error.required && vm.submitted" class="help-block">What's your email
+                    <p ng-show="form.email.$error.required && $ctrl.submitted" class="help-block">What's your email
                         address?</p>
-                    <p ng-show="form.email.$error.mongoose" class="help-block">{{ vm.errors.email }}</p>
+                    <p ng-show="form.email.$error.mongoose" class="help-block">{{ $ctrl.errors.email }}</p>
                 </div>
-                <div ng-class="{ 'has-success': form.password.$valid && vm.submitted,        'has-error': form.password.$invalid && vm.submitted }"
+                <div ng-class="{ 'has-success': form.password.$valid && $ctrl.submitted,        'has-error': form.password.$invalid && $ctrl.submitted }"
                      class="form-group">
                     <label>Пароль</label>
-                    <input type="password" name="password" ng-model="vm.user.password" mongoose-error=""
+                    <input type="password" name="password" ng-model="$ctrl.user.password" mongoose-error=""
                            ng-minlength="3" required="" class="form-control"/>
-                    <p ng-show="(form.password.$error.minlength || form.password.$error.required) && vm.submitted"
+                    <p ng-show="(form.password.$error.minlength || form.password.$error.required) && $ctrl.submitted"
                        class="help-block">Password must be at least 3 characters.</p>
-                    <p ng-show="form.password.$error.mongoose" class="help-block">{{ vm.errors.password }}</p>
+                    <p ng-show="form.password.$error.mongoose" class="help-block">{{ $ctrl.errors.password }}</p>
                 </div>
-                <div ng-class="{ 'has-success': form.confirmPassword.$valid && vm.submitted,        'has-error': form.confirmPassword.$invalid && vm.submitted }"
+                <div ng-class="{ 'has-success': form.confirmPassword.$valid && $ctrl.submitted,        'has-error': form.confirmPassword.$invalid && $ctrl.submitted }"
                      class="form-group">
                     <label>Подтвердите пароль</label>
-                    <input type="password" name="confirmPassword" ng-model="vm.user.confirmPassword"
-                           match="vm.user.password" ng-minlength="3" required="" class="form-control"/>
-                    <p ng-show="form.confirmPassword.$error.match && vm.submitted" class="help-block">Passwords must
+                    <input type="password" name="confirmPassword" ng-model="$ctrl.user.confirmPassword"
+                           match="$ctrl.user.password" ng-minlength="3" required="" class="form-control"/>
+                    <p ng-show="form.confirmPassword.$error.match && $ctrl.submitted" class="help-block">Passwords must
                         match.</p>
                 </div>
                 <div class="checkbox">
                     <label>
-                        <input type="checkbox" name="isOfferNotification" ng-model="vm.user.isOfferNotification"
-                               ng-init="vm.user.isOfferNotification=true"> Я согласен получать информацию об акциях и
+                        <input type="checkbox" name="isOfferNotification" ng-model="$ctrl.user.isOfferNotification"
+                               ng-init="$ctrl.user.isOfferNotification=true"> Я согласен получать информацию об акциях и
                         скидках
                     </label>
                 </div>

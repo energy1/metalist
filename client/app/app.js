@@ -29,7 +29,7 @@ import FileService from './services/file.service';
 
 import FooterComponent from './footer/footer.component';
 import mongooseErrorDirective from './mongoose-error/mongoose-error.directive';
-import oauthButtonsDirective from './oauth-buttons/oauth-buttons.directive';
+import OauthButtonsComponent from './oauth-buttons/oauth-buttons.component';
 
 import { routerConfig } from './router';
 import routerDecorator from './auth/router.decorator';
@@ -92,9 +92,9 @@ angular.module('metalistTicketsApp', [
   .component('notFoundComponent', NotFoundComponent)
   .component('navbar', NavbarComponent)
   .component('footer', FooterComponent)
+  .component('oauthButtons', OauthButtonsComponent)
   
   .directive('mongooseError', mongooseErrorDirective)
-  .directive('oauthButtons', oauthButtonsDirective)
   
   .service('CartService', CartService)
   .service('MatchService', MatchService)

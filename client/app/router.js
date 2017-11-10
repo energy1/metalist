@@ -164,9 +164,7 @@ export function routerConfig($cookiesProvider, $stateProvider, $urlRouterProvide
     })
     .state('settings', {
       url: '/settings',
-      templateUrl: settingsTemplate,
-      controller: 'SettingsController',
-      controllerAs: 'vm',
+      component: 'settingsComponent',
       authenticate: true
     });
 

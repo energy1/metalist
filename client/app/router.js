@@ -133,12 +133,7 @@ export function routerConfig($cookiesProvider, $stateProvider, $urlRouterProvide
     component: 'adminComponent',
     authenticate: 'admin'
   });
-
-  
-
-
-
-  
+ 
 
   $stateProvider.state('login', {
     url: '/login?referrer',

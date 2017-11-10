@@ -49,10 +49,10 @@ import LogoutComponent from './account/logout/logout.component';
 import SignupComponent from './account/signup/signup.component';
 import MatchComponent from './match/match.component';
 import NotFoundComponent from './404/404.component';
-import NavbarController from './navbar/navbar.controller';
 import RecoveryComponent from './account/recovery/recovery.component';
 import SectorComponent from './sector/sector.component';
 import SettingsComponent from './account/settings/settings.component';
+import NavbarComponent from './navbar/navbar.component';
 
 import '../favicon.ico';
 import './app.less';
@@ -92,6 +92,7 @@ angular.module('metalistTicketsApp', [
   .component('checkoutComponent', CheckoutComponent)
   .component('sectorComponent', SectorComponent)
   .component('notFoundComponent', NotFoundComponent)
+  .component('navbarComponent', NavbarComponent)
   
   .directive('footer', footerDirective)
   .directive('mongooseError', mongooseErrorDirective)
@@ -105,8 +106,7 @@ angular.module('metalistTicketsApp', [
   .service('FileService', FileService)
     
   
-  .controller('NavbarController', NavbarController)
-
+  
   .config(routerConfig)
   .config(function ($httpProvider) {
     'ngInject';

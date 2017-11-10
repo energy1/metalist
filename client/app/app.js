@@ -20,6 +20,8 @@ import NavpanelComponent from './navpanel/navpanel.component';
 import StadiumComponent from './stadium/stadium.component';
 import CalendarComponent from './calendar/calendar.component';
 import RenderTicketComponent from './render-ticket/render-ticket.component';
+import FooterComponent from './footer/footer.component';
+import OauthButtonsComponent from './oauth-buttons/oauth-buttons.component';
 
 import CartService from './services/cart.service';
 import MatchService from './services/match.service';
@@ -27,9 +29,8 @@ import TicketsService from './services/ticket.service';
 import PrintTicketService from './print-ticket/print-ticket.servise';
 import FileService from './services/file.service';
 
-import FooterComponent from './footer/footer.component';
 import mongooseErrorDirective from './mongoose-error/mongoose-error.directive';
-import OauthButtonsComponent from './oauth-buttons/oauth-buttons.component';
+
 
 import { routerConfig } from './router';
 import routerDecorator from './auth/router.decorator';
@@ -40,6 +41,7 @@ import authModule from './auth/auth.module';
 import ticketsModule from './tickets/tickets.module';
 import constantsModule from './app.constant';
 import filtersModule from './filters/filters';
+
 import CheckoutComponent from './checkout/checkout.component';
 import HomeComponent from './home/home.component';
 import LoginComponent from './account/login/login.component';
@@ -100,8 +102,7 @@ angular.module('metalistTicketsApp', [
   .service('MatchService', MatchService)
   .service('TicketsService', TicketsService)
   .service('PrintTicketService', PrintTicketService)
-  .service('FileService', FileService)
-    
+  .service('FileService', FileService)    
   
   
   .config(routerConfig)

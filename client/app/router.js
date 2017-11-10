@@ -170,8 +170,6 @@ export function routerConfig($cookiesProvider, $stateProvider, $urlRouterProvide
 
   $stateProvider.state('404', {
     url: '/404',
-    templateUrl: notFoundTemplate,
-    controller: '404Controller',
-    controllerAs: 'vm'
+    component: 'notFoundComponent'
   });
 }

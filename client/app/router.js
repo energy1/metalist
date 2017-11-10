@@ -160,9 +160,7 @@ export function routerConfig($cookiesProvider, $stateProvider, $urlRouterProvide
     })
     .state('recovery', {
       url: '/recovery',
-      templateUrl: recoveryTemplate,
-      controller: 'RecoveryController',
-      controllerAs: 'vm'
+      component: 'recoveryComponent'
     })
     .state('settings', {
       url: '/settings',

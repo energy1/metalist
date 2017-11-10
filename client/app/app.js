@@ -49,7 +49,7 @@ import SignupComponent from './account/signup/signup.component';
 import MatchComponent from './match/match.component';
 import NotFoundController from './404/404.controller';
 import NavbarController from './navbar/navbar.controller';
-import RecoveryController from './account/recovery/recovery.controller';
+import RecoveryComponent from './account/recovery/recovery.component';
 import SectorComponent from './sector/sector.component';
 import SettingsController from './account/settings/settings.controller';
 
@@ -76,6 +76,7 @@ angular.module('metalistTicketsApp', [
   .component('loginComponent', LoginComponent)
   .component('logoutComponent', LogoutComponent)
   .component('signupComponent', SignupComponent)
+  .component('recoveryComponent', RecoveryComponent)
   .component('homeComponent', HomeComponent)
   .component('matchDetails', MatchDetailsComponent)
   .component('matchComponent', MatchComponent)
@@ -101,7 +102,6 @@ angular.module('metalistTicketsApp', [
     
   
   .controller('NavbarController', NavbarController)
-  .controller('RecoveryController', RecoveryController)
   .controller('SettingsController', SettingsController)
   .controller('NotFoundController', NotFoundController)
 

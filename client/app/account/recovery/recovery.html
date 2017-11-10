@@ -4,10 +4,10 @@
             <h1>Восстановление пароля</h1>
             <p>Для восстановления пароля вы должны указать свой e-mail.<br />
                 Если вы укажете верные данные, то на e-mail будет отправлено письмо с временным  паролем.</p>
-            <p ng-show="vm.message " ng-bind="vm.message "></p>
+            <p ng-show="$ctrl.message " ng-bind="$ctrl.message "></p>
         </div>
         <div class="col-sm-12">
-            <form name="form" ng-submit="vm.recovery(form, email)" novalidate="" class="form">
+            <form name="form" ng-submit="$ctrl.recovery(form, email)" novalidate="" class="form">
                 <div class="form-group" ng-class="{'has-error': form.email.$invalid && form.email.$dirty}">
                     <label>Email</label>
                     <input type="email" name="email" ng-model="email" placeholder="Enter your email" class="form-control" required="required"/>

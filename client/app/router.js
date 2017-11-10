@@ -152,8 +152,7 @@ export function routerConfig($cookiesProvider, $stateProvider, $urlRouterProvide
   })
     .state('logout', {
       url: '/logout',
-      template: '',
-      controller: 'LogoutController'
+      component: 'logoutComponent',
     })
     .state('signup', {
       url: '/signup',

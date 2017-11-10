@@ -27,7 +27,7 @@ import TicketsService from './services/ticket.service';
 import PrintTicketService from './print-ticket/print-ticket.servise';
 import FileService from './services/file.service';
 
-import footerDirective from './footer/footer.directive';
+import FooterComponent from './footer/footer.component';
 import mongooseErrorDirective from './mongoose-error/mongoose-error.directive';
 import oauthButtonsDirective from './oauth-buttons/oauth-buttons.directive';
 
@@ -91,10 +91,9 @@ angular.module('metalistTicketsApp', [
   .component('sectorComponent', SectorComponent)
   .component('notFoundComponent', NotFoundComponent)
   .component('navbar', NavbarComponent)
+  .component('footer', FooterComponent)
   
-  .directive('footer', footerDirective)
   .directive('mongooseError', mongooseErrorDirective)
-  //.directive('navbar', navbarDirective)
   .directive('oauthButtons', oauthButtonsDirective)
   
   .service('CartService', CartService)

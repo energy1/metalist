@@ -29,7 +29,6 @@ import FileService from './services/file.service';
 
 import footerDirective from './footer/footer.directive';
 import mongooseErrorDirective from './mongoose-error/mongoose-error.directive';
-import navbarDirective from './navbar/navbar.directive';
 import oauthButtonsDirective from './oauth-buttons/oauth-buttons.directive';
 
 import { routerConfig } from './router';
@@ -44,7 +43,6 @@ import filtersModule from './filters/filters';
 import CheckoutComponent from './checkout/checkout.component';
 import HomeComponent from './home/home.component';
 import LoginComponent from './account/login/login.component';
-import LogoutController from './account/logout/logout.controller';
 import LogoutComponent from './account/logout/logout.component';
 import SignupComponent from './account/signup/signup.component';
 import MatchComponent from './match/match.component';
@@ -92,11 +90,11 @@ angular.module('metalistTicketsApp', [
   .component('checkoutComponent', CheckoutComponent)
   .component('sectorComponent', SectorComponent)
   .component('notFoundComponent', NotFoundComponent)
-  .component('navbarComponent', NavbarComponent)
+  .component('navbar', NavbarComponent)
   
   .directive('footer', footerDirective)
   .directive('mongooseError', mongooseErrorDirective)
-  .directive('navbar', navbarDirective)
+  //.directive('navbar', navbarDirective)
   .directive('oauthButtons', oauthButtonsDirective)
   
   .service('CartService', CartService)

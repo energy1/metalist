@@ -112,9 +112,8 @@ export function routerConfig($cookiesProvider, $stateProvider, $urlRouterProvide
 
   $stateProvider.state('main.sector', {
     url: '/match/:id/tribune/:tribune/sectors/:sector',
-    templateUrl: sectorTemplate,
-    controller: 'SectorController',
-    controllerAs: 'vm',
+    component: 'sectorComponent',
+
     resolve: {
       //sector:  $stateParams,
 
@@ -133,6 +132,7 @@ export function routerConfig($cookiesProvider, $stateProvider, $urlRouterProvide
       //},
       match: (MatchService, $stateParams, $state) => {
         'ngInject';
+        console.log('MatchService', MatchService.fetchMatch($stateParams.id))
         return MatchService
           .fetchMatch($stateParams.id)
           .catch((error) => {

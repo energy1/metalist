@@ -1,37 +1,37 @@
 <div class="container">
   <navpanel></navpanel>
   <div class="row">
-    <match-details match="vm.match"></match-details>
+    <match-details match="$ctrl.match"></match-details>
   </div>
   <div class="gradientSeats"></div>
   <div class="row">
     <div class="col-xs-12">
-      <p style="text-align: center; font-size: large">Выбор места ({{vm.sector.name}} Сектор) - {{vm.sectorPrice}}
+      <p style="text-align: center; font-size: large">Выбор места ({{$ctrl.sector.name}} Сектор) - {{$ctrl.sectorPrice}}
         грн.</p>
     </div>
-    <div class="col-xs-12" ng-show="vm.message">
-      <span>{{vm.message}}</span>
+    <div class="col-xs-12" ng-show="$ctrl.message">
+      <span>{{$ctrl.message}}</span>
     </div>
     <div class="row rowPadding">
       <!--//@TODO need compolent-->
       <div class="col-lg-12 col12Padding">
         <div class="col-xs-1 rowNames">
           <ul class="liststyle">
-            <li ng-repeat="row in vm.sector.rows | orderBy:'-'"
-                ng-class="{'rowdivider': vm.firstUpperRow == row.name}">  <!-- @TODO remove ng-repeat duplication  -->
-              <div class="txt">{{vm.rowRow}} {{row.name}}</div>
+            <li ng-repeat="row in $ctrl.sector.rows | orderBy:'-'"
+                ng-class="{'rowdivider': $ctrl.firstUpperRow == row.name}">  <!-- @TODO remove ng-repeat duplication  -->
+              <div class="txt">{{$ctrl.rowRow}} {{row.name}}</div>
             </li>
           </ul>
         </div>
         <div class="col-xs-11 seatsMargin">
           <ul class="liststyle">
-            <li ng-repeat="row in vm.sector.rows | orderBy:'-'"
-                ng-class="{'rowdivider': vm.firstUpperRow == row.name}">  <!-- @TODO remove ng-repeat duplication  -->
-              <div id="s{{vm.sector.name}}{{row.name}}{{1+$index}}"
-                   ng-class="vm.addClassByCheckSoldSeat('s'+vm.sector.name+'r'+row.name+'st'+(1+$index))"
-                   ng-repeat="seat in vm.makeArrayFromNumber(row.seats)"
-                   ng-click="vm.addSeatToCart(vm.sector.name, row.name, seat)"
-                   uib-popover-html="'<p>Трибуна: <b>{{vm.tribuneName}} {{vm.sector.name}}</b><br />Ряд: <b>{{row.name}}</b><br />Место: <b>{{seat}}</b></p>'"
+            <li ng-repeat="row in $ctrl.sector.rows | orderBy:'-'"
+                ng-class="{'rowdivider': $ctrl.firstUpperRow == row.name}">  <!-- @TODO remove ng-repeat duplication  -->
+              <div id="s{{$ctrl.sector.name}}{{row.name}}{{1+$index}}"
+                   ng-class="$ctrl.addClassByCheckSoldSeat('s'+$ctrl.sector.name+'r'+row.name+'st'+(1+$index))"
+                   ng-repeat="seat in $ctrl.makeArrayFromNumber(row.seats)"
+                   ng-click="$ctrl.addSeatToCart($ctrl.sector.name, row.name, seat)"
+                   uib-popover-html="'<p>Трибуна: <b>{{$ctrl.tribuneName}} {{$ctrl.sector.name}}</b><br />Ряд: <b>{{row.name}}</b><br />Место: <b>{{seat}}</b></p>'"
                    popover-trigger="mouseenter"></div>
             </li>
           </ul>
@@ -42,30 +42,30 @@
       <div class="gradientSeats"></div>
     </div>
   </div>
-  <render-ticket tickets="vm.printTickets" on-change="vm.ticketRendering()" > </render-ticket>
+  <render-ticket tickets="$ctrl.printTickets" on-change="$ctrl.ticketRendering()" > </render-ticket>
   <div class="cardBlock container text-center">
     <div class="row row-centered">
       <div class="col-xs-9 col-centered col-fixed">
         <div>
-          <p ng-show="vm.isReserveSuccess">
+          <p ng-show="$ctrl.isReserveSuccess">
             <strong>Время резерва окончилось и билет был кем-то выбран для покупки.</strong><br />
           </p>
           <div>
-            <cart-details on-delete="vm.updateReservedTickets($event)"></cart-details>
+            <cart-details on-delete="$ctrl.updateReservedTickets($event)"></cart-details>
           </div>
         </div>
       </div>
       <div class="colPadding col-xs-3 col-centered col-fixed">
         <div>
           <div>
-            <div ng-show="!vm.hasRoleCashier && vm.cartService.getMyCartSize()">
+            <div ng-show="!$ctrl.hasRoleCashier && $ctrl.cartService.getMyCartSize()">
               <a ui-sref="main.checkout" class="btn btn-info">Оформить заказ</a>
             </div>
-            <div ng-show="vm.hasRoleCashier && !vm.isReserveSuccess">
-              <a class="btn btn-primary btn-block" ng-click="vm.pay()">Оплатить</a>
+            <div ng-show="$ctrl.hasRoleCashier && !$ctrl.isReserveSuccess">
+              <a class="btn btn-primary btn-block" ng-click="$ctrl.pay()">Оплатить</a>
             </div>
-            <!--<div ng-show="vm.hasRoleCashier && !vm.isReserveSuccess">-->
-              <!--<a class="btn btn-primary btn-block" ng-click="vm.print()">Повтор печати</a>-->
+            <!--<div ng-show="$ctrl.hasRoleCashier && !$ctrl.isReserveSuccess">-->
+              <!--<a class="btn btn-primary btn-block" ng-click="$ctrl.print()">Повтор печати</a>-->
             <!--</div>-->
         </div>
         </div>
@@ -73,12 +73,12 @@
     </div>
   </div>
   <div class="col-sm-12">
-    <blockquote ng-show="vm.isSkybox()">
+    <blockquote ng-show="$ctrl.isSkybox()">
       <strong>Корпоративные ложи Skybox.</strong><br><br>
       <p>Лучшие места для просмотра матчей команды «Металлист 1925»!</p>
 
       <p>Корпоративные ложи Skybox-современные и комфортабельные ложи для VIP-персон, вместимостью от 11 до 20 мест, расположенные на 4 уровне Западной трибуны стадиона «Металлист».</p>
-      <p>Стоимость аренды одного места на одном матче - <strong>{{vm.sectorPrice}} грн.</strong></p>
+      <p>Стоимость аренды одного места на одном матче - <strong>{{$ctrl.sectorPrice}} грн.</strong></p>
       <p></p>К вашим услугам :</p>
       <ul>
         <li>комфортабельные современные помещения с отдельным VIP входом и индивидуальной террасой,</li>

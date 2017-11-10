@@ -48,7 +48,7 @@ import MatchComponent from './match/match.component';
 import NotFoundController from './404/404.controller';
 import NavbarController from './navbar/navbar.controller';
 import RecoveryController from './account/recovery/recovery.controller';
-import SectorController from './sector/sector.controller';
+import SectorComponent from './sector/sector.component';
 import SettingsController from './account/settings/settings.controller';
 import SignupController from './account/signup/signup.controller';
 
@@ -82,6 +82,7 @@ angular.module('metalistTicketsApp', [
   .component('calendar', CalendarComponent)
   .component('renderTicket', RenderTicketComponent)
   .component('checkoutComponent', CheckoutComponent)
+  .component('sectorComponent', SectorComponent)
   
   .directive('footer', footerDirective)
   .directive('mongooseError', mongooseErrorDirective)
@@ -98,7 +99,6 @@ angular.module('metalistTicketsApp', [
   .controller('LogoutController', LogoutController)
   .controller('NavbarController', NavbarController)
   .controller('RecoveryController', RecoveryController)
-  .controller('SectorController', SectorController)
   .controller('SettingsController', SettingsController)
   .controller('SignupController', SignupController)
   .controller('NotFoundController', NotFoundController)

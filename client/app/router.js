@@ -148,9 +148,7 @@ export function routerConfig($cookiesProvider, $stateProvider, $urlRouterProvide
   $stateProvider.state('login', {
     url: '/login?referrer',
     referrer: 'main.home',
-    templateUrl: accountTemplate,
-    controller: 'LoginController',
-    controllerAs: 'vm'
+    component: 'loginComponent'
   })
     .state('logout', {
       url: '/logout',

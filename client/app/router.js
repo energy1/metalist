@@ -1,17 +1,5 @@
 "use strict";
 
-import adminTemplate from './admin/admin.html';
-import checkoutTemplate from './checkout/checkout.html';
-import homeTemplate from './home/home.html';
-import notFoundTemplate from './404/404.html';
-import matchTemplate from './match/match.html';
-import sectorTemplate from './sector/sector.html';
-import ticketsTemplate from './tickets/tickets.html';
-import accountTemplate from './account/login/login.html';
-import recoveryTemplate from './account/recovery/recovery.html';
-import signupTemplate from './account/signup/signup.html';
-import settingsTemplate from './account/settings/settings.html';
-
 export function routerConfig($cookiesProvider, $stateProvider, $urlRouterProvider, $locationProvider) {
   'ngInject';
 
@@ -56,15 +44,12 @@ export function routerConfig($cookiesProvider, $stateProvider, $urlRouterProvide
       }
     });
 
-    $stateProvider.state('main.tickets', {
-      url: '/my/tickets',
-      component: 'ticketsComponent'  
-    });
+   
 
   $stateProvider.state('main', {
     abstract: true,
     url: '',
-    template: '<ui-view />',
+    component: 'mainComponent',
     resolve: {
       cart: (CartService) => {
         'ngInject';
@@ -74,12 +59,6 @@ export function routerConfig($cookiesProvider, $stateProvider, $urlRouterProvide
           });
       }
     }
-  });
-
-  $stateProvider.state('admin', {
-    url: '/admin',
-    component: 'adminComponent',
-    authenticate: 'admin'
   });
 
   $stateProvider.state('main.home', {
@@ -105,9 +84,9 @@ export function routerConfig($cookiesProvider, $stateProvider, $urlRouterProvide
     }
   });
 
-  $stateProvider.state('main.checkout', {
-    url: '/checkout',
-    component: 'checkoutComponent'
+  $stateProvider.state('main.tickets', {
+    url: '/my/tickets',
+    component: 'ticketsComponent'  
   });
 
   $stateProvider.state('main.sector', {
@@ -142,6 +121,22 @@ export function routerConfig($cookiesProvider, $stateProvider, $urlRouterProvide
       }
     }
   });
+
+  $stateProvider.state('main.checkout', {
+    url: '/checkout',
+    component: 'checkoutComponent'
+  });
+ 
+
+  $stateProvider.state('admin', {
+    url: '/admin',
+    component: 'adminComponent',
+    authenticate: 'admin'
+  });
+
+  
+
+
 
   
 

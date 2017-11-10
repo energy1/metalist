@@ -12,6 +12,7 @@ import ioBarcode from 'angular-io-barcode';
 
 import './angular-locale_ru-ru';
 
+import MainComponent from './main/main.component'
 import MatchDetailsComponent from './match-details/match-details.component';
 import CartDetailsComponent from './cart/details/cart-details.component';
 import CartSummaryComponent from './cart/summary/cart-summary.component';
@@ -73,6 +74,7 @@ angular.module('metalistTicketsApp', [
   ioBarcode.name,
   ticketsModule
 ])
+  .component('mainComponent', MainComponent)
   .component('loginComponent', LoginComponent)
   .component('logoutComponent', LogoutComponent)
   .component('signupComponent', SignupComponent)
